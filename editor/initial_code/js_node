@@ -1,6 +1,6 @@
 import assert from "assert";
 
-function findSequence(values: number[][]]): boolean {
+function findSequence(values: number[][]): boolean {
     // your code here
     return false;
 }
