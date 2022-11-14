@@ -22,8 +22,6 @@
         or more matching numbers and output a bool.”</p>
 
     <p>“Easy enough. Let’s open this sucker up!” Sofia was shaking in excitement.</p>
-
-
 </div>
 
 <p>
@@ -42,85 +40,25 @@
      alt="find-sequence"
      width="380px"/>
 
-<p><strong>Input: </strong> A matrix as a list of lists with integers.</p>
+<p><strong>Input:</strong> A matrix as {% if is_js %}an Array of Arrays of numbers{% else %}list of lists with integers{% endif %}.</p>
 
-<p><strong>Output: </strong>Whether or not a sequence exists as a boolean.</p>
+<p><strong>Output:</strong> Whether or not a sequence exists as a boolean.</p>
 
 <div class="for_info_only">
-    <p><strong>Example:</strong></p>
+    <p><strong>Examples:</strong></p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">findSequence([
-    [1, 2, 1, 1],
-    [1, 1, 4, 1],
-    [1, 3, 1, 6],
-    [1, 7, 2, 5]
-]) == True
-findSequence([
-    [7, 1, 4, 1],
-    [1, 2, 5, 2],
-    [3, 4, 1, 3],
-    [1, 1, 8, 1]
-]) == False
-findSequence([
-    [2, 1, 1, 6, 1],
-    [1, 3, 2, 1, 1],
-    [4, 1, 1, 3, 1],
-    [5, 5, 5, 5, 5],
-    [1, 1, 3, 1, 1]
-]) == True
-findSequence([
-    [7, 1, 1, 8, 1, 1],
-    [1, 1, 7, 3, 1, 5],
-    [2, 3, 1, 2, 5, 1],
-    [1, 1, 1, 5, 1, 4],
-    [4, 6, 5, 1, 3, 1],
-    [1, 1, 9, 1, 2, 1]
-    ]) == True
-</pre>
-{% else %}
-<pre class="brush: python">checkio([
-    [1, 2, 1, 1],
-    [1, 1, 4, 1],
-    [1, 3, 1, 6],
-    [1, 7, 2, 5]
-]) == True
-checkio([
-    [7, 1, 4, 1],
-    [1, 2, 5, 2],
-    [3, 4, 1, 3],
-    [1, 1, 8, 1]
-]) == False
-checkio([
-    [2, 1, 1, 6, 1],
-    [1, 3, 2, 1, 1],
-    [4, 1, 1, 3, 1],
-    [5, 5, 5, 5, 5],
-    [1, 1, 3, 1, 1]
-]) == True
-checkio([
-    [7, 1, 1, 8, 1, 1],
-    [1, 1, 7, 3, 1, 5],
-    [2, 3, 1, 2, 5, 1],
-    [1, 1, 1, 5, 1, 4],
-    [4, 6, 5, 1, 3, 1],
-    [1, 1, 9, 1, 2, 1]
-    ]) == True
-</pre>
-{% endif %}
-</div>
-
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
-    This concept is useful for games where you need to detect various lines of the same elements (match 3 games for
-    example).
-    This algorithm can be used for basic pattern recognition.
+    <strong>How it is used:</strong>
+    This concept is useful for games where you need to detect various lines of the same elements (match 3 games for example). This algorithm can be used for basic pattern recognition.
 </p>
 
 <p>
-    <strong>Precondition:</strong><br>
-    0 &le; len(matrix) &le; 10<br>
-    all(all(0 &lt; x &lt; 10 for x in row) for row in matrix)
+    <strong>Preconditions:</strong>
+    <ul>
+        <li>0 &le; len(matrix) &le; 10;</li>
+        <li>all(all(0 &lt; x &lt; 10 for x in row) for row in matrix).</li>
+    </ul>
 </p>

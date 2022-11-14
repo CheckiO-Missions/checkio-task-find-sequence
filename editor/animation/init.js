@@ -84,11 +84,6 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
             };
         }
         var io = new extIO({
-            functions: {
-                js: 'findSequence',
-                python: 'checkio'
-            },
-            animationTemplateName: 'animation',
             animation: function($expl, data){
                 var checkioInput = data.in;
                 if (!checkioInput){
@@ -96,7 +91,7 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                 }
                 var explanation = data.ext["explanation"];
                 var canvas = new FindSequenceCanvas();
-                canvas.createCanvas($expl[0], checkioInput, explanation);
+                canvas.createCanvas($expl[0], checkioInput[0], explanation);
             },
         });
         io.start();
